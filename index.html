@@ -466,6 +466,108 @@
           </ul>
         </div>
       </div>
+      <div>
+        <p>Subscribe</p>
+        <form class="form-send">
+          <label for="email"></label>
+          <input type="email" id="email" />
+          <button type="button">
+            Subscribe
+            <svg>
+              <use href="./images/icons.svg#icon-send"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
     </footer>
+
+    <div class="backdrop is-open">
+      <div class="modal">
+        <form class="backdrop-modal">
+          <button type="button" class="backdrop-button-close">
+            <svg class="backdrop-icon" widht="8" height="8">
+              <use href="./images/icons.svg#icon-close-button"></use>
+            </svg>
+          </button>
+          <p class="backdrop-text">
+            Leave your contacts and we will call you back
+          </p>
+
+          <div class="backdrop-content">
+            <div class="backdrop-content-user">
+              <label for="name">Name</label>
+              <div class="backdrop-icon-content">
+                <svg class="backdrop-icon-name" width="18" height="18">
+                  <use href="./images/icons.svg#icon-person-black"></use>
+                </svg>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder=""
+                  class="backdrop-input"
+                />
+              </div>
+            </div>
+
+            <div class="backdrop-content-user">
+              <label class="backdrop-name" for="name">Phone</label>
+              <div class="backdrop-icon-content">
+                <svg class="backdrop-icon-name" width="18" height="18">
+                  <use href="./images/icons.svg#icon-phone-black"></use>
+                </svg>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder=""
+                  class="backdrop-input"
+                />
+              </div>
+            </div>
+
+            <div class="backdrop-content-user">
+              <label class="backdrop-name" for="name">Email</label>
+              <div class="backdrop-icon-content">
+                <svg class="backdrop-icon-name" width="18" height="18">
+                  <use href="./images/icons.svg#icon-email-black"></use>
+                </svg>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder=""
+                  class="backdrop-input"
+                />
+              </div>
+            </div>
+
+            <div class="backdrop-content-user">
+              <label class="backdrop-name" for="comment">Comment</label>
+              <div class="backdrop-icon-content">
+                <textarea
+                  name="comment"
+                  placeholder="Text input"
+                  class="backdrop-comment-text"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="backdrop-content-privacy">
+              <input type="checkbox" name="privacy" id="" />
+              <svg>
+                <use href="./images/icons.svg#icon-check"></use>
+              </svg>
+              <label for="privacy"
+                >I accept the terms and conditions of the
+                <span>Privacy Policy</span></label
+              >
+            </div>
+
+            <button type="button" class="hero-button modal-button">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
