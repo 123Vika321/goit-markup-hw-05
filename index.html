@@ -510,7 +510,7 @@
             </div>
 
             <div class="backdrop-content-user">
-              <label class="backdrop-name" for="name">Phone</label>
+              <label class="backdrop-name" for="phone">Phone</label>
               <div class="backdrop-icon-content">
                 <svg class="backdrop-icon-name" width="18" height="18">
                   <use href="./images/icons.svg#icon-phone-black"></use>
@@ -525,17 +525,12 @@
             </div>
 
             <div class="backdrop-content-user">
-              <label class="backdrop-name" for="name">Email</label>
+              <label class="backdrop-name" for="email">Email</label>
               <div class="backdrop-icon-content">
                 <svg class="backdrop-icon-name" width="18" height="18">
                   <use href="./images/icons.svg#icon-email-black"></use>
                 </svg>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder=""
-                  class="backdrop-input"
-                />
+                <input type="email" name="email" class="backdrop-input" />
               </div>
             </div>
 
@@ -543,6 +538,7 @@
               <label class="backdrop-name" for="comment">Comment</label>
               <div class="backdrop-icon-content">
                 <textarea
+                  id="comment"
                   name="comment"
                   placeholder="Text input"
                   class="backdrop-comment-text"
@@ -551,7 +547,7 @@
             </div>
 
             <div class="backdrop-content-privacy">
-              <input type="checkbox" name="privacy" />
+              <input type="checkbox" id="privacy" name="privacy" />
               <svg>
                 <use href="./images/icons.svg#icon-check"></use>
               </svg>
