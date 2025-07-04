@@ -494,20 +494,6 @@ img {
 .portfolio-picture:hover .overlay {
   transform: translateY(0);
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #4d5ae5;
-  color: #f4f4fd;
-  padding-top: 45px;
-  padding-left: 32px;
-  letter-spacing: 0.02em;
-  transform: translateY(100%);
-  transition: transform 250ms ease-in-out;
-}
 
 .portfolio-picture-text {
   font-family: var(--font-family);
@@ -516,21 +502,6 @@ img {
   line-height: 150%;
   letter-spacing: 0.02em;
   color: var(--cloud);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #f4f4fd;
-  padding: 40px 32px;
-  background-color: #4d5ae5;
-  height: 100%;
-  width: 100%;
-  transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-cart-content {
@@ -671,17 +642,18 @@ img {
 }
 /*Bottom section end*/
 
-.form-send {
-  margin-left: auto;
-}
+/*Pop-up start*/
 
-.backdrop {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(46, 47, 66, 0.4);
   /*щоб приховати елемент*/
   opacity: 0;
@@ -691,98 +663,78 @@ img {
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop.is-open {
+.overlay.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 408px;
-  min-height: 584px;
-  border-radius: 4px;
-  transform: translate(-50%, -50%);
-
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
-    0 2px 1px 0 rgba(0, 0, 0, 0.2);
-  background-color: var(--dairy);
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.backdrop:not(.is-open) .modal {
+.overlay:not(.is-open) .modal {
   transform: translate(-50%, -50%) scale(1.5);
 }
 
-.backdrop-modal {
+.pop-up {
+  width: 408px;
+
+  border-radius: 4px;
+  background-color: var(--dairy);
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
   padding: 24px;
+  position: relative;
 }
 
-.backdrop-button-close {
+.pop-up-button-close {
+  width: 5%;
+  align-self: flex-end;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 600;
   position: absolute;
   top: 24px;
   right: 24px;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  border: none;
-  cursor: pointer;
-  fill: var(--cornflower);
-  stroke-width: 1px;
-  stroke: rgba(0, 0, 0, 0.1);
-  background-color: transparent;
-  margin-bottom: 16px;
+  border: 4px;
 }
 
-.backdrop-button-close:hover,
-.backdrop-button-close:focus {
+.pop-up-button-close:hover,
+.pop-up-button-close:focus {
   background-color: var(--ocean);
+  border: none;
 }
 
-.backdrop-icon {
-  fill: currentColor;
-  color: #000;
-  width: 8px;
-  height: 8px;
+.pop-up-icon {
+  position: relative;
+  fill: var(--navy-blue);
 }
 
-.backdrop-icon:hover,
-.backdrop-icon:focus {
+.pop-up-icon:hover,
+.pop-up-icon:focus {
   fill: var(--white);
 }
 
-.backdrop-text {
+.pop-up-text {
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.02em;
   text-align: center;
   color: var(--navy-blue);
-  padding-top: 72px;
-  margin-bottom: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 24px;
 }
 
-.backdrop-content-user {
+.pop-up-content {
   margin-bottom: 8px;
   border: none;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.backdrop-content-user:last-of-type {
-  margin-bottom: 16px;
-  flex-direction: row;
-  gap: 8px;
-}
-
-.backdrop-content-user label {
+.pop-up-content label {
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
@@ -791,68 +743,112 @@ img {
   margin-bottom: 4px;
 }
 
-.backdrop-icon-content {
-  position: relative;
-  border: none;
-  width: 360px;
-  height: 40px;
-}
-
-.backdrop-icon-name {
-  position: absolute;
-  fill: #000;
-  top: 11px;
-  left: 16px;
-}
-
-.backdrop-input {
+.pop-up-content-input,
+.pop-up-content-comment {
   border: 1px solid var(--navy-blue-modal);
   border-radius: 4px;
-  width: 360px;
-  height: 40px;
   box-sizing: border-box;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
 }
 
-.backdrop-content-user textarea {
-  border: 1px solid var(--navy-blue-modal);
+.pop-up-content-input {
   border-radius: 4px;
   width: 360px;
-  height: 120px;
+  height: 40px;
+  padding-left: 38px;
 }
 
-.backdrop-comment-text {
+.pop-up-content:hover .pop-up-icon-name,
+.pop-up-content:hover .pop-up-content-input,
+.pop-up-content:hover .pop-up-content-input::placeholder {
+  border-color: var(--iris);
+  stroke: var(--iris);
+}
+
+.pop-up-content-input:focus-visible,
+.pop-up-content:hover .pop-up-icon-name,
+.pop-up-content-input:focus-visible .pop-up-content-input::placeholder {
+  border-color: var(--iris);
+  stroke: var(--iris);
+  outline: none;
+}
+
+.pop-up-content:focus-within .pop-up-icon-name,
+.pop-up-content:focus-within .pop-up-content-input::placeholder {
+  border-color: var(--iris);
+  stroke: var(--iris);
+}
+
+.pop-up-content-icon {
+  position: relative;
+}
+
+.pop-up-icon-name {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  padding: 3px 0;
+  fill: var(--navy-blue);
+}
+
+.pop-up-content-comment {
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
   letter-spacing: 0.04em;
   color: var(--navy-blue-modal);
-  padding-left: 16px;
+}
+
+.pop-up-content-comment {
+  resize: none;
+  width: auto;
+}
+
+.pop-up-content-comment::placeholder {
   padding-top: 8px;
+  padding-left: 16px;
 }
 
-.modal-button {
-  position: absolute;
-  bottom: 24px;
-  display: block;
-  align-items: center;
-  margin: 0 auto;
+textarea {
+  height: 120px;
+  margin-bottom: 24px;
 }
 
-.backdrop-content-privacy {
-  font-family: var(--font-family);
+.privacy {
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
   letter-spacing: 0.04em;
   color: var(--light-slate);
+  position: relative;
 }
 
-.backdrop-content-privacy span {
+.privacy-link {
   line-height: 133%;
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: var(--iris);
+  cursor: pointer;
+}
+
+.privacy input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  border-radius: 6px;
+}
+
+.checkbox-text {
+  margin-left: 16px;
 }
