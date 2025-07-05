@@ -673,38 +673,59 @@ img {
   transform: translate(-50%, -50%) scale(1.5);
 }
 
-.pop-up {
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 408px;
-
+  min-height: 584px;
   border-radius: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--dairy);
+  transform: translate(-50%, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pop-up {
   background-color: var(--dairy);
   display: flex;
   flex-direction: column;
   padding: 24px;
   position: relative;
+  padding: 72px 24px 24px 24px;
 }
 
 .pop-up-button-close {
-  width: 5%;
-  align-self: flex-end;
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
-  font-weight: 600;
   position: absolute;
   top: 24px;
   right: 24px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #e7e9fc;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.pop-up-button-close:hover,
+.pop-up-button-close:hover {
+  background-color: #404bbf;
+  border: none;
+}
+
 .pop-up-button-close:focus {
-  background-color: var(--ocean);
+  background-color: #404bbf;
   border: none;
 }
 
 .pop-up-icon {
+  fill: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   fill: var(--navy-blue);
 }
@@ -722,8 +743,7 @@ img {
   text-align: center;
   color: var(--navy-blue);
   width: 100%;
-  margin-bottom: 8px;
-  margin-top: 24px;
+  margin-bottom: 16px;
 }
 
 .pop-up-content {
@@ -734,13 +754,14 @@ img {
   position: relative;
 }
 
-.pop-up-content label {
+.pop-up-content-user {
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
   letter-spacing: 0.04em;
   color: var(--light-slate);
   margin-bottom: 4px;
+  display: block;
 }
 
 .pop-up-content-input,
@@ -752,9 +773,16 @@ img {
 
 .pop-up-content-input {
   border-radius: 4px;
-  width: 360px;
+  width: 100%;
   height: 40px;
   padding-left: 38px;
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pop-up-content-input:focus {
+  border-color: #4d5ae5;
 }
 
 .pop-up-content:hover .pop-up-icon-name,
@@ -784,10 +812,18 @@ img {
 
 .pop-up-icon-name {
   position: absolute;
-  top: 12px;
+  top: 50%px;
   left: 16px;
-  padding: 3px 0;
-  fill: var(--navy-blue);
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pop-up-icon-name:focus {
+  fill: #4d5ae5;
+}
+
+.pop-up-content:last-of-type {
+  margin-bottom: 16px;
 }
 
 .pop-up-content-comment {
@@ -796,20 +832,22 @@ img {
   line-height: 117%;
   letter-spacing: 0.04em;
   color: var(--navy-blue-modal);
-}
-
-.pop-up-content-comment {
   resize: none;
-  width: auto;
-}
-
-.pop-up-content-comment::placeholder {
-  padding-top: 8px;
-  padding-left: 16px;
-}
-
-textarea {
+  width: 100%;
   height: 120px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 8px 16px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pop-up-content-comment:focus {
+  border-color: #4d5ae5;
+}
+
+.pop-up-content-checkbox {
   margin-bottom: 24px;
 }
 
@@ -819,7 +857,28 @@ textarea {
   line-height: 117%;
   letter-spacing: 0.04em;
   color: var(--light-slate);
-  position: relative;
+}
+
+.privacy-check {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+}
+
+.checkbox-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: 0.04em;
+  color: var(--light-slate);
 }
 
 .privacy-link {
@@ -828,14 +887,6 @@ textarea {
   text-decoration-skip-ink: none;
   color: var(--iris);
   cursor: pointer;
-}
-
-.privacy input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
 }
 
 .checkmark {
@@ -847,8 +898,4 @@ textarea {
   background-color: #eee;
   border: 1px solid rgba(17, 17, 17, 0.14);
   border-radius: 6px;
-}
-
-.checkbox-text {
-  margin-left: 16px;
 }
