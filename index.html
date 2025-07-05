@@ -482,92 +482,88 @@
     </footer>
 
     <div class="overlay is-open">
-        <form class="pop-up">
-          <button type="button" class="pop-up-button-close">
-            <svg class="pop-up-icon" width="8" height="8">
-              <use href="./images/icons.svg#icon-close-button"></use>
+      <form class="pop-up">
+        <button type="button" class="pop-up-button-close">
+          <svg class="pop-up-icon" width="8" height="8">
+            <use href="./images/icons.svg#icon-close-button"></use>
+          </svg>
+        </button>
+        <p class="pop-up-text">Leave your contacts and we will call you back</p>
+
+        <div class="pop-up-content">
+          <label for="name">Name</label>
+          <div class="pop-up-content-icon">
+            <svg class="pop-up-icon-name social-icons" width="18" height="18">
+              <use href="./images/icons.svg#icon-person-black"></use>
             </svg>
-          </button>
-          <p class="pop-up-text">
-            Leave your contacts and we will call you back
-          </p>
-
-          <div class="pop-up-content">
-            <label for="name">Name</label>
-           <div class="pop-up-content-icon">
-              <svg class="pop-up-icon-name social-icons" width="18" height="18">
-                <use href="./images/icons.svg#icon-person-black"></use>
-              </svg>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder=""
-                class="pop-up-content-input"
-              />
-           </div>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder=""
+              class="pop-up-content-input"
+            />
           </div>
+        </div>
 
-            <div class="pop-up-content">
-              <label for="phone">Phone</label>
-               <div class="pop-up-content-icon">
-                  <svg class="pop-up-icon-name social-icons" width="18" height="18">
-                    <use href="./images/icons.svg#icon-phone-black"></use>
-                  </svg>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder=""
-                    class="pop-up-content-input"
-                  />
-               </div>
-              </div>
+        <div class="pop-up-content">
+          <label for="phone">Phone</label>
+          <div class="pop-up-content-icon">
+            <svg class="pop-up-icon-name social-icons" width="18" height="18">
+              <use href="./images/icons.svg#icon-phone-black"></use>
+            </svg>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder=""
+              class="pop-up-content-input"
+            />
+          </div>
+        </div>
 
-            <div class="pop-up-content">
-              <label for="user-email">Email</label>
-              <div class="pop-up-content-icon">
-                  <svg class="pop-up-icon-name social-icons" width="18" height="18">
-                    <use href="./images/icons.svg#icon-email-black"></use>
-                  </svg>
-                  <input
-                    type="email"
-                    id="user-email"
-                    name="email"
-                    class="pop-up-content-input"
-                  />
-              </div>
-              </div>
+        <div class="pop-up-content">
+          <label for="user-email">Email</label>
+          <div class="pop-up-content-icon">
+            <svg class="pop-up-icon-name social-icons" width="18" height="18">
+              <use href="./images/icons.svg#icon-email-black"></use>
+            </svg>
+            <input
+              type="email"
+              id="user-email"
+              name="email"
+              class="pop-up-content-input"
+            />
+          </div>
+        </div>
 
-            <div class="pop-up-content">
-              <label for="comment">Comment</label>
-                <textarea 
-                  id="comment"
-                  name="comment"
-                  placeholder="Text input"
-                  class="pop-up-content-comment"
-                ></textarea>
-              </div>
+        <div class="pop-up-content">
+          <label for="comment">Comment</label>
+          <textarea
+            id="comment"
+            name="comment"
+            placeholder="Text input"
+            class="pop-up-content-comment"
+          ></textarea>
+        </div>
 
-              <div class="pop-up-content">
-                <input type="checkbox" id="privacy-check" checked="checked" />
-                <label for="privacy-check" class="privacy">
+        <div class="pop-up-content">
+          <input type="checkbox" id="privacy-check" checked="checked" />
+          <label for="privacy-check" class="privacy">
             <span>
-                  <svg>
-                    <use href="./images/icons.svg#icon-check"></use>
-                  </svg>
-                  <span class="checkbox-text">
-                      I accept the terms and conditions of the
-                      <span class="privacy-link">Privacy Policy
-                      </span>
+              <svg>
+                <use href="./images/icons.svg#icon-check"></use>
+              </svg>
+              <span class="checkbox-text">
+                I accept the terms and conditions of the
+                <span class="privacy-link">Privacy Policy</span>
               </span>
-            </label>
-              </div>
-          
+            </span>
+          </label>
+        </div>
 
-            <button type="submit" class="hero-button">Send</button>
-          </form>
-          </div>
-       
+        <button type="submit" class="hero-button">Send</button>
+      </form>
+    </div>
   </body>
 </html>
